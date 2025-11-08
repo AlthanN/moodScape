@@ -8,6 +8,7 @@ import HowItWorks from "@/components/landingPageComponents/how-it-works"
 import Gallery from "@/components/landingPageComponents/gallery"
 import AuthModal from "@/components/landingPageComponents/auth-modal"
 
+
 export default function Home() {
   const [showAuth, setShowAuth] = useState(false)
 
@@ -18,6 +19,7 @@ export default function Home() {
       <About />
       <HowItWorks />
       <Gallery />
+
       {showAuth && <AuthModal onClose={() => setShowAuth(false)} />}
     </div>
   )
