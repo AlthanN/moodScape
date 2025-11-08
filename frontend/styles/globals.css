@@ -1,0 +1,160 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* Soft warm whites and gentle grays */
+  --background: oklch(0.98 0.005 120);
+  --foreground: oklch(0.35 0.02 240);
+  --card: oklch(0.99 0.003 180);
+  --card-foreground: oklch(0.35 0.02 240);
+  --popover: oklch(0.99 0.003 180);
+  --popover-foreground: oklch(0.35 0.02 240);
+  
+  /* Calming sage green as primary */
+  --primary: oklch(0.55 0.08 150);
+  --primary-foreground: oklch(0.99 0.003 180);
+  
+  /* Soft blue-gray secondary */
+  --secondary: oklch(0.92 0.015 220);
+  --secondary-foreground: oklch(0.35 0.02 240);
+  
+  /* Muted lavender-gray */
+  --muted: oklch(0.94 0.01 280);
+  --muted-foreground: oklch(0.55 0.015 260);
+  
+  /* Gentle sky blue accent */
+  --accent: oklch(0.90 0.025 220);
+  --accent-foreground: oklch(0.35 0.02 240);
+  
+  /* Soft coral for destructive (less aggressive) */
+  --destructive: oklch(0.65 0.12 25);
+  --destructive-foreground: oklch(0.99 0.003 25);
+  
+  /* Subtle borders and inputs */
+  --border: oklch(0.88 0.01 200);
+  --input: oklch(0.88 0.01 200);
+  --ring: oklch(0.60 0.06 200);
+  
+  /* Calming chart colors - nature inspired */
+  --chart-1: oklch(0.65 0.10 160);  /* Soft teal */
+  --chart-2: oklch(0.70 0.09 200);  /* Gentle blue */
+  --chart-3: oklch(0.68 0.08 280);  /* Soft lavender */
+  --chart-4: oklch(0.75 0.08 100);  /* Muted lime */
+  --chart-5: oklch(0.72 0.10 50);   /* Warm peach */
+  
+  --radius: 0.625rem;
+  
+  /* Sidebar with calming tones */
+  --sidebar: oklch(0.96 0.008 180);
+  --sidebar-foreground: oklch(0.35 0.02 240);
+  --sidebar-primary: oklch(0.55 0.08 150);
+  --sidebar-primary-foreground: oklch(0.99 0.003 180);
+  --sidebar-accent: oklch(0.92 0.015 220);
+  --sidebar-accent-foreground: oklch(0.35 0.02 240);
+  --sidebar-border: oklch(0.88 0.01 200);
+  --sidebar-ring: oklch(0.60 0.06 200);
+}
+
+.dark {
+  /* Deep, calming night blues */
+  --background: oklch(0.20 0.02 240);
+  --foreground: oklch(0.92 0.01 180);
+  --card: oklch(0.22 0.02 240);
+  --card-foreground: oklch(0.92 0.01 180);
+  --popover: oklch(0.22 0.02 240);
+  --popover-foreground: oklch(0.92 0.01 180);
+  
+  /* Gentle aqua primary */
+  --primary: oklch(0.70 0.09 190);
+  --primary-foreground: oklch(0.20 0.02 240);
+  
+  /* Soft slate secondary */
+  --secondary: oklch(0.30 0.02 240);
+  --secondary-foreground: oklch(0.92 0.01 180);
+  
+  /* Muted blue-gray */
+  --muted: oklch(0.28 0.02 250);
+  --muted-foreground: oklch(0.70 0.015 220);
+  
+  /* Gentle periwinkle accent */
+  --accent: oklch(0.32 0.03 260);
+  --accent-foreground: oklch(0.92 0.01 180);
+  
+  /* Soft muted red for dark mode */
+  --destructive: oklch(0.55 0.15 20);
+  --destructive-foreground: oklch(0.92 0.01 20);
+  
+  /* Subtle borders */
+  --border: oklch(0.32 0.02 240);
+  --input: oklch(0.32 0.02 240);
+  --ring: oklch(0.50 0.05 220);
+  
+  /* Dark mode chart colors - moonlit palette */
+  --chart-1: oklch(0.60 0.12 180);  /* Soft cyan */
+  --chart-2: oklch(0.65 0.10 220);  /* Cool blue */
+  --chart-3: oklch(0.68 0.09 280);  /* Gentle purple */
+  --chart-4: oklch(0.70 0.10 140);  /* Muted mint */
+  --chart-5: oklch(0.72 0.11 60);   /* Soft amber */
+  
+  /* Sidebar dark mode */
+  --sidebar: oklch(0.18 0.02 240);
+  --sidebar-foreground: oklch(0.92 0.01 180);
+  --sidebar-primary: oklch(0.70 0.09 190);
+  --sidebar-primary-foreground: oklch(0.20 0.02 240);
+  --sidebar-accent: oklch(0.30 0.02 240);
+  --sidebar-accent-foreground: oklch(0.92 0.01 180);
+  --sidebar-border: oklch(0.32 0.02 240);
+  --sidebar-ring: oklch(0.50 0.05 220);
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
