@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import React, { useRef } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
@@ -49,16 +49,20 @@ export default function FarmScene() {
           shadow-camera-top={10}
           shadow-camera-bottom={-10}
         />
-        
+
         {/* Sky */}
         <Sky sunPosition={[100, 20, 100]} />
-        
+
         {/* Ground */}
-        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]} receiveShadow>
+        <mesh
+          rotation={[-Math.PI / 2, 0, 0]}
+          position={[0, 0, 0]}
+          receiveShadow
+        >
           <planeGeometry args={[30, 30]} />
           <meshStandardMaterial color="#389413" />
         </mesh>
-        
+
         {/* Farm elements */}
         <Barn 
         position = {[0, 4, -8.2]}
