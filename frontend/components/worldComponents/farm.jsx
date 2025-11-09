@@ -92,7 +92,7 @@ function GradientBackground() {
 // Main farm scene
 export default function FarmScene() {
   return (
-    <div style={{ width: '100%', height: '100vh', background: '#1a2a4a' }}>
+    <div style={{ width: '100%', height: '100vh', background: '#ff8754' }}>
 
       
       <Canvas

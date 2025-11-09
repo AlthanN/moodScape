@@ -284,17 +284,10 @@ export default function InfernoScene() {
           scale={0.15}
           rotation={[0, Math.PI / 2, 0]}
         />
-
-        {/* Neon signs next to speakers */}
-        <NeonSigns
-          position={[15, 2, -3]}
-          scale={0.3}
-          rotation={[0, -Math.PI / 4, 0]}
-        />
-        <NeonSigns
-          position={[-15, 2, 3]}
-          scale={0.3}
-          rotation={[0, Math.PI / 4, 0]}
+        <Frog
+        position={[-18, 1.65, 0.5]}
+        scale={0.008}
+        rotation={[0, Math.PI / 2, 0]}
         />
 
         {/* Speakers for sound */}
