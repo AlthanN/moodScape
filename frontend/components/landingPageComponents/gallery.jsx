@@ -20,7 +20,7 @@ export default function Gallery() {
       genre: "Happy / Energetic",
       color: "#FFFFFF",
       hoverColor: "#0EA5E9", // Ocean blue
-      backgroundImage: "/web_assets/demoFarmBlur.png", 
+      backgroundImage: "/web_assets/beachBlur.png", 
       path: "/beach",
     },
     {
@@ -28,7 +28,7 @@ export default function Gallery() {
       genre: "Calm / Lo-Fi",
       color: "#FFFFFF",
       hoverColor: "#22C55E", // Forest green
-      backgroundImage: "/web_assets/demoFarmBlur.png", 
+      backgroundImage: "/web_assets/campBlur.png", 
       path: "/camp",
     },
     {
@@ -40,12 +40,11 @@ export default function Gallery() {
       path: "/concert-hall",
     },
     {
-      name: "Inferno Realm",
-      genre: "Intense / Rock / Rap",
-      color: "#FFFFFF",
-      hoverColor: "#6B7280", // Gray
-      backgroundImage: "/web_assets/demoFarmBlur.png", 
-      path: "/inferno",
+      name: "Sakura",
+      genre: "Love",
+      color: "from-yellow-900 to-red-900",
+      emoji: "🎼",
+      path: "/sakura",
     },
   ];
 
