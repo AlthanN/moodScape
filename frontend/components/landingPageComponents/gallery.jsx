@@ -29,7 +29,7 @@ export default function Gallery() {
       color: "#FFFFFF",
       hoverColor: "#22C55E", // Forest green
       backgroundImage: "/web_assets/demoFarmBlur.png", 
-      path: "/enchanted-forest",
+      path: "/camp",
     },
     {
       name: "Gloomy Ville",
@@ -38,6 +38,14 @@ export default function Gallery() {
       hoverColor: "#6B7280", // Gray
       backgroundImage: "/web_assets/demoFarmBlur.png", 
       path: "/concert-hall",
+    },
+    {
+      name: "Inferno Realm",
+      genre: "Intense / Rock / Rap",
+      color: "#FFFFFF",
+      hoverColor: "#6B7280", // Gray
+      backgroundImage: "/web_assets/demoFarmBlur.png", 
+      path: "/inferno",
     },
   ];
 
