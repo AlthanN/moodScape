@@ -9,7 +9,7 @@ export default function Gallery() {
   const worlds = [
     {
       name: "Sunset Ranch",
-      genre: "Country / Folk",
+      genre: "Happy / Uplifting",
       color: "#FFFFE0",
       hoverColor: "#8B7355", // Brown/tan for countryside
       backgroundImage: "/web_assets/farmBlur.png",
@@ -17,7 +17,7 @@ export default function Gallery() {
     },
     {
       name: "Paradise Cove",
-      genre: "Happy / Energetic",
+      genre: "High-Energy",
       color: "#FFFFFF",
       hoverColor: "#0EA5E9", // Ocean blue
       backgroundImage: "/web_assets/beachBlur.png",
@@ -32,15 +32,15 @@ export default function Gallery() {
       path: "/camp",
     },
     {
-      name: "Gloomy Ville",
-      genre: "Sad / Blues",
+      name: "Moonlit Avenue",
+      genre: "Melancholic / Emotional",
       color: "#FFFFFF",
       hoverColor: "#6B7280", // Gray
       backgroundImage: "/web_assets/cityBlur.jpg",
       path: "/city",
     },
     {
-      name: "Sakura",
+      name: "Sakura Bloom",
       genre: "Romantic / Intimate",
       color: "from-yellow-900 to-red-900",
       hoverColor: "#D88A97",
@@ -48,7 +48,7 @@ export default function Gallery() {
       path: "/sakura",
     },
     {
-      name: "Inferno",
+      name: "Inferno Mountain",
       genre: "Rap / Rock",
       color: "from-yellow-900 to-red-900",
       backgroundImage: "/web_assets/infernoBlur.jpg",

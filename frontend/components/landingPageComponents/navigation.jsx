@@ -51,9 +51,6 @@ export default function Navigation({ onLoginClick }) {
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center text-xl gap-8">
-          <a href="#about" className="text-[#543111] font-bold hover:text-foreground transition">
-            Home
-          </a>
           <a href="#about" className="text-[#543111] font-bold  hover:text-foreground transition">
             About
           </a>

@@ -42,10 +42,10 @@ export default function About() {
                 <span className="text-xl">🌍</span>
               </div>
               <h3 className="text-xl font-semibold mb-3" style={{ color: "#543111" }}>
-                Multiple Worlds
+                Multiple Landscapes
               </h3>
               <p style={{ color: "#543111", opacity: 0.85 }}>
-                From cozy farms to quiet forests, each genre gets its perfect environment.
+                From cozy farms to infernal landscapes, each genre gets its perfect environment.
               </p>
             </div>
 
@@ -64,7 +64,7 @@ export default function About() {
                 Friends
               </h3>
               <p style={{ color: "#543111", opacity: 0.85 }}>
-                Using Spotify IDs, add your friends and see each other mood worlds!
+                Gain a deeper depth of connection through visit friends unique worlds using their spotify IDs!
               </p>
             </div>
           </div>

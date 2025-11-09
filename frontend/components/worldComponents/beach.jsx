@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useMemo } from 'react';
+import React, { useRef, useMemo, useEffect } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Sky, Cloud } from '@react-three/drei';
 import * as THREE from 'three';
@@ -17,6 +17,31 @@ import { DuckPool } from './happyComponents/DuckPool';
 import { OrangeChair } from './happyComponents/OrangeChair';
 import { Table } from './happyComponents/Table';
 import { Cocktail } from './happyComponents/Cocktail';
+
+function AmbientSounds() {
+  const beachAudioRef = useRef(null);
+
+  useEffect(() => {
+    // Create and setup waves sound
+    const beachAudio = new Audio("/sounds/beach.wav");
+    beachAudio.loop = true;
+    beachAudio.volume = 0.5;
+    beachAudioRef.current = beachAudio;
+
+    // Play sound
+    beachAudio
+      .play()
+      .catch((err) => console.log("Fire audio autoplay prevented:", err));
+
+    // Cleanup function
+    return () => {
+      beachAudio.pause();
+      beachAudio.currentTime = 0;
+    };
+  }, []);
+
+  return null;
+}
 
 // Animated Water Component
 function Water() {
@@ -236,7 +261,10 @@ function Rock({ position, scale }) {
 // Main Beach Scene
 export default function BeachScene() {
   return (
+    <> 
+    <AmbientSounds></AmbientSounds>
     <div style={{ width: '100%', height: '100vh' }}>
+      
       <Canvas
         camera={{ position: [40, 5, -30], fov: 60 }}
         shadows
@@ -380,5 +408,6 @@ export default function BeachScene() {
         🏖️ Beach Scene • Drag to rotate • Scroll to zoom
       </div>
     </div>
+    </>
   );
 }
