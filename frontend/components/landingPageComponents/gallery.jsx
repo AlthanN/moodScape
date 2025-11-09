@@ -37,7 +37,7 @@ export default function Gallery() {
       color: "#FFFFFF",
       hoverColor: "#6B7280", // Gray
       backgroundImage: "/web_assets/demoFarmBlur.png", 
-      path: "/concert-hall",
+      path: "/city",
     },
     {
       name: "Sakura",

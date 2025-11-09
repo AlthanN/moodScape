@@ -24,8 +24,21 @@ export default function StatsHUD() {
   const [searchInput, setSearchInput] = useState('');
   const [searchLoading, setSearchLoading] = useState(false);
   const [searchError, setSearchError] = useState('');
+  const [shouldShowBackButton, setShouldShowBackButton] = useState(false);
   const searchParams = useSearchParams();
   const router = useRouter();
+
+  useEffect(() => {
+    // Check if we navigated via previous mood or search
+    if (typeof window !== 'undefined') {
+      const navigatedViaButton = localStorage.getItem('navigatedViaButton');
+      setShouldShowBackButton(navigatedViaButton === 'true');
+      // Clear the flag after using it
+      if (navigatedViaButton) {
+        localStorage.removeItem('navigatedViaButton');
+      }
+    }
+  }, []);
 
   useEffect(() => {
     // Try to get mood data from URL query parameters first
@@ -180,7 +193,21 @@ export default function StatsHUD() {
 
     const worldRoute = moodToWorldMap[oldMood.toLowerCase()] || '/camp';
     console.log(`Navigating to world for previous mood: ${oldMood} (route: ${worldRoute})`);
+    // Store current world before navigating
+    if (typeof window !== 'undefined') {
+      localStorage.setItem('previousWorldPath', window.location.pathname);
+      localStorage.setItem('navigatedViaButton', 'true');
+    }
     router.push(worldRoute);
+  };
+
+  const handleBackToWorld = () => {
+    if (typeof window !== 'undefined') {
+      const previousPath = localStorage.getItem('previousWorldPath');
+      if (previousPath) {
+        router.push(previousPath);
+      }
+    }
   };
 
   const handleSearchUser = async (e) => {
@@ -214,6 +241,11 @@ export default function StatsHUD() {
         const userMood = moodData.data.emotion.toLowerCase();
         const worldRoute = moodToWorldMap[userMood] || '/camp';
         console.log(`Navigating to world for user ${searchInput}: ${userMood} (route: ${worldRoute})`);
+        // Store current world before navigating
+        if (typeof window !== 'undefined') {
+          localStorage.setItem('previousWorldPath', window.location.pathname);
+          localStorage.setItem('navigatedViaButton', 'true');
+        }
         router.push(worldRoute);
       } else {
         setSearchError('User has no mood data');
@@ -328,16 +360,27 @@ export default function StatsHUD() {
             </div>
           </div>
 
-          {/* Previous Mood Button - Right of Mood Analysis */}
-          {oldMood && (
-            <button
-              onClick={handleVisitPreviousMood}
-              style={styles.visitPreviousMoodButton}
-              title={`Enter your ${oldMood} world`}
-            >
-              Previous Mood: {oldMood.charAt(0).toUpperCase() + oldMood.slice(1)}
-            </button>
-          )}
+          {/* Previous Mood Button and Back Button - Right of Mood Analysis */}
+          <div style={styles.buttonGroup}>
+            {oldMood && (
+              <button
+                onClick={handleVisitPreviousMood}
+                style={styles.visitPreviousMoodButton}
+                title={`Enter your ${oldMood} world`}
+              >
+                Previous Mood: {oldMood.charAt(0).toUpperCase() + oldMood.slice(1)}
+              </button>
+            )}
+            {shouldShowBackButton && (
+              <button
+                onClick={handleBackToWorld}
+                style={styles.backButton}
+                title="Back to previous world"
+              >
+                ← Back
+              </button>
+            )}
+          </div>
         </div>
 
         {/* Right side - Search Bar and Recently Listened Tracks */}
@@ -351,7 +394,7 @@ export default function StatsHUD() {
                 setSearchInput(e.target.value);
                 setSearchError('');
               }}
-              placeholder="Enter Spotify user ID"
+              placeholder="Enter Friend User ID"
               style={styles.searchInput}
               disabled={searchLoading}
             />
@@ -594,6 +637,29 @@ const styles = {
     fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto',
     whiteSpace: 'nowrap',
   },
+  buttonGroup: {
+    pointerEvents: 'auto',
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '8px',
+    alignItems: 'flex-start',
+  },
+  backButton: {
+    pointerEvents: 'auto',
+    padding: '12px 24px',
+    background: 'rgba(255, 255, 255, 0.1)',
+    border: '2px solid rgba(255, 255, 255, 0.3)',
+    borderRadius: '12px',
+    color: '#000',
+    fontSize: '14px',
+    fontWeight: '600',
+    cursor: 'pointer',
+    backdropFilter: 'blur(10px)',
+    boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+    transition: 'all 0.3s ease',
+    fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto',
+    whiteSpace: 'nowrap',
+  },
   spotifyUserIdContainer: {
     position: 'fixed',
     bottom: '20px',
@@ -611,8 +677,8 @@ const styles = {
     pointerEvents: 'auto',
     display: 'flex',
     gap: '8px',
-    alignItems: 'flex-start',
-    flexDirection: 'column',
+    alignItems: 'center',
+    flexDirection: 'row',
   },
   searchInput: {
     padding: '10px 16px',

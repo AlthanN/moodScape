@@ -4,7 +4,6 @@ import React from "react";
 import { Canvas } from "@react-three/fiber";
 import { useRouter } from "next/navigation";
 import Camp from "@/components/worldComponents/camp";
-import FirstPersonControls from "./FirstPersonControls";
 import StatsHUD from "@/components/worldComponents/StatsHUD";
 
 export default function CampPage() {
@@ -41,7 +40,6 @@ export default function CampPage() {
         gl={{ alpha: false }}
       >
         <Camp />
-        <FirstPersonControls />
       </Canvas>
     </div>
   );

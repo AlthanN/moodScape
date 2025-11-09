@@ -4,6 +4,7 @@ import React from "react";
 import { Canvas } from "@react-three/fiber";
 import { useRouter } from "next/navigation";
 import City from "@/components/worldComponents/city";
+import StatsHUD from "@/components/worldComponents/StatsHUD";
 import { OrbitControls } from "@react-three/drei";
 
 export default function CityPage() {
@@ -11,6 +12,7 @@ export default function CityPage() {
 
   return (
     <div style={{ width: "100%", height: "100vh", position: "relative" }}>
+      <StatsHUD />
       <Canvas
         camera={{
           position: [12, 3, -20], // [x, y, z] - Change these values
