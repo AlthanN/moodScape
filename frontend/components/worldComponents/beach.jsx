@@ -18,7 +18,7 @@ import { DuckPool } from './happyComponents/DuckPool';
 import { OrangeChair } from './happyComponents/OrangeChair';
 import { Table } from './happyComponents/Table';
 import { Cocktail } from './happyComponents/Cocktail';
-
+import StatsHUD from './StatsHUD';
 
 // Animated Water Component
 function Water() {
