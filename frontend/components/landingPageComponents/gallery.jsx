@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import Link from "next/link"
+import { useState } from "react";
+import Link from "next/link";
 
 export default function Gallery() {
-  const [hoveredIndex, setHoveredIndex] = useState(null)
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
   const worlds = [
     {
@@ -15,11 +15,11 @@ export default function Gallery() {
       path: "/farm",
     },
     {
-      name: "Cyber City",
+      name: "Camp",
       genre: "EDM / Electronic",
       color: "from-purple-900 to-pink-900",
       emoji: "🌆",
-      path: "/cyber-city",
+      path: "/camp",
     },
     {
       name: "Enchanted Forest",
@@ -35,11 +35,11 @@ export default function Gallery() {
       emoji: "🎼",
       path: "/concert-hall",
     },
-  ]
+  ];
 
   const handleNavigate = (path) => {
-    window.location.href = path
-  }
+    window.location.href = path;
+  };
 
   return (
     <section id="gallery" className="py-20 bg-background">
@@ -59,7 +59,9 @@ export default function Gallery() {
               key={index}
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
-              className={`bg-gradient-to-br ${world.color} rounded-lg overflow-hidden border border-foreground/10 hover:border-accent/50 transition-all duration-300 group cursor-pointer transform ${
+              className={`bg-gradient-to-br ${
+                world.color
+              } rounded-lg overflow-hidden border border-foreground/10 hover:border-accent/50 transition-all duration-300 group cursor-pointer transform ${
                 hoveredIndex === index
                   ? "scale-105 shadow-2xl shadow-accent/20"
                   : "hover:shadow-lg shadow-background/50"
@@ -83,7 +85,7 @@ export default function Gallery() {
                   {world.genre}
                 </p>
                 {hoveredIndex === index && (
-                  <button 
+                  <button
                     onClick={() => handleNavigate(world.path)}
                     className="mt-3 px-4 py-2 bg-accent text-background rounded-lg text-sm font-semibold hover:bg-accent/90 transition animate-slide-up"
                   >
@@ -96,5 +98,5 @@ export default function Gallery() {
         </div>
       </div>
     </section>
-  )
+  );
 }

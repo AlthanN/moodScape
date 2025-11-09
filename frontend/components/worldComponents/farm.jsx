@@ -1,22 +1,19 @@
-"use client"
+"use client";
 
-import React, { useRef } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
-import { Environment, OrbitControls, Sky } from '@react-three/drei';
-import * as THREE from 'three';
-import Cow from './countryComponents/Cow';
-import Fence from './countryComponents/Fence';
-import Tree from './countryComponents/Tree';
+import React, { useRef } from "react";
+import { Canvas, useFrame } from "@react-three/fiber";
+import { Environment, OrbitControls, Sky } from "@react-three/drei";
+import * as THREE from "three";
+import Cow from "./countryComponents/Cow";
+import Fence from "./countryComponents/Fence";
+import Tree from "./countryComponents/Tree";
 //import Canvas from "@react-three/fiber";
 
 // Main farm scene
 export default function FarmScene() {
   return (
-    <div style={{ width: '100%', height: '100vh', background: '#87ceeb' }}>
-      <Canvas
-        camera={{ position: [8, 6, 8], fov: 60 }}
-        shadows
-      >
+    <div style={{ width: "100%", height: "100vh", background: "#87ceeb" }}>
+      <Canvas camera={{ position: [8, 6, 8], fov: 60 }} shadows>
         {/* Lighting */}
         <ambientLight intensity={0.5} />
         <directionalLight
@@ -31,27 +28,29 @@ export default function FarmScene() {
           shadow-camera-top={10}
           shadow-camera-bottom={-10}
         />
-        
+
         {/* Sky */}
         <Sky sunPosition={[100, 20, 100]} />
-        
+
         {/* Ground */}
-        <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]} receiveShadow>
+        <mesh
+          rotation={[-Math.PI / 2, 0, 0]}
+          position={[0, 0, 0]}
+          receiveShadow
+        >
           <planeGeometry args={[30, 30]} />
           <meshStandardMaterial color="#389413" />
         </mesh>
-        
+
         {/* Farm elements */}
-        <Cow 
-        position={[0, 0, 0]}
-        scale = {0.5}/>
-        
+        <Cow position={[0, 0, 0]} scale={0.5} />
+
         {/* Fences */}
-        <Fence  />
-        
+        <Fence />
+
         {/* Trees */}
         <Tree />
-        
+
         {/* Controls */}
         <OrbitControls
           enablePan={true}
