@@ -186,7 +186,7 @@ export default function InfernoScene() {
         position: "relative",
       }}
     >
-      <Canvas camera={{ position: [-5, 9, 20], fov: 60 }} shadows>
+      <Canvas camera={{ position: [0, 12, 16], fov: 60 }} shadows>
         {/* Red/orange inferno sky */}
         <color attach="background" args={["#2a1515"]} />
 
